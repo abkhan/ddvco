@@ -12,9 +12,9 @@ Usage ...
   -f string
     	comma separated additional fields (default "na")
   -h string
-    	VeloCloud api host
+    	VeloCloud api host info
   -l int
-    	ID of the edge device
+    	ID of the edge device (device ID)
   -ssl
     	enable ssl
   -t string
