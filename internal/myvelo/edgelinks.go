@@ -53,7 +53,7 @@ func GetEdgeLinkMetrics(c *velocloud.Client, eid int, from, to time.Time) ([]int
 		log.Fatal(err)
 	}
 
-	httpreq, err := http.NewRequest("POST", fmt.Sprintf("%s/metrics/getEdgeLinkMetrics", c.HostURL), &buf)
+	httpreq, err := http.NewRequest("POST", fmt.Sprintf("%s/%s", c.HostURL, getEdgeLinkMetricsPath), &buf)
 
 	es := []interface{}{}
 	if err != nil {
