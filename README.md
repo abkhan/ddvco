@@ -14,7 +14,7 @@ Usage ...
   -h string
     	VeloCloud api host details info
   -l int
-    	ID of the edge device (device ID) --
+    	ID of the edge device (device ID)
   -ssl
     	enable ssl
   -t string
