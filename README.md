@@ -8,7 +8,7 @@ Usage ...
   -e int
     	ID of the edge device (default 1)
   -enterpriseId int
-    	ID of the VeloCloud Enterprise (default 10)
+    	ID of the VeloCloud Enterprise (default 10) --
   -f string
     	comma separated additional fields (default "na")
   -h string
