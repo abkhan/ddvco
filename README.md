@@ -18,7 +18,7 @@ Usage ...
   -ssl
     	enable ssl
   -t string
-    	VeloCloud api access token (default "ey")
+    	VeloCloud api access token (default "ey..")
   -v	print initial option summary
   -w int
     	minutes between poll (default 5)
