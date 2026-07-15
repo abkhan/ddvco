@@ -46,7 +46,7 @@ func main() {
 
 	for {
 
-		flist, e := myvelo.GetEdgeLinkMetricFields(vco, *edgeID, time.Now().Add(time.Duration(-1)*time.Hour), time.Now(), fl)
+		flist, e := myvelo.GetEdgeLinkMetricFields(vco, *edgeID, time.Now().Add(time.Duration(-1)*time.Hour), time.Now(), []string{""})
 		if e != nil {
 			log.Fatalf("error getting link metrics: %v", e)
 		}
