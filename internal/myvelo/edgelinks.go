@@ -66,8 +66,8 @@ func GetEdgeLinkMetrics(c *velocloud.Client, eid int, from, to time.Time) ([]int
 	res, err := c.DoRequest(httpreq)
 	if err != nil {
 		if strings.Contains(err.Error(), "status: 429") {
-			time.Sleep(2 * time.Second)
-			res, err = c.DoRequest(httpreq)
+			time.Sleep(3 * time.Second)
+			res, err = c.DoRequest(httpreq) // call again
 		}
 
 		if err != nil {
