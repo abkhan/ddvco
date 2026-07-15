@@ -70,7 +70,7 @@ func GetEdgeLinkMetrics(c *velocloud.Client, eid int, from, to time.Time) ([]int
 			res, err = c.DoRequest(httpreq)
 		}
 
-		if err != nil {
+		if err != nil { // retry once
 			return es, err
 		}
 	}
