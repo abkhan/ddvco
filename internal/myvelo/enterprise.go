@@ -10,7 +10,7 @@ import (
 
 // GetEnterprises ...
 func GetEnterprises(c *velocloud.Client) ([]string, error) {
-	req, err := http.NewRequest("POST", fmt.Sprintf("%s/network/getNetworkEnterprises", c.HostURL), nil)
+	req, err := http.NewRequest("POST", fmt.Sprintf("%s/%s", c.HostURL, getNetworkEnterprisesPath), nil)
 
 	es := []string{}
 	if err != nil {

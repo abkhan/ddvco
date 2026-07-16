@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"strings"
 	"time"
 
 	"github.com/abkhan/ddvco/pkg/velocloud"
@@ -53,7 +54,7 @@ func GetEdgeLinkMetrics(c *velocloud.Client, eid int, from, to time.Time) ([]int
 		log.Fatal(err)
 	}
 
-	httpreq, err := http.NewRequest("POST", fmt.Sprintf("%s/metrics/getEdgeLinkMetrics", c.HostURL), &buf)
+	httpreq, err := http.NewRequest("POST", fmt.Sprintf("%s/%s", c.HostURL, getEdgeLinkMetricsPath), &buf)
 
 	es := []interface{}{}
 	if err != nil {
@@ -64,8 +65,14 @@ func GetEdgeLinkMetrics(c *velocloud.Client, eid int, from, to time.Time) ([]int
 	// Send the request
 	res, err := c.DoRequest(httpreq)
 	if err != nil {
-		fmt.Println(err.Error())
-		return es, err
+		if strings.Contains(err.Error(), "status: 429") {
+			time.Sleep(3 * time.Second)
+			res, err = c.DoRequest(httpreq) // call again
+		}
+
+		if err != nil {
+			return es, err
+		}
 	}
 
 	// Unmarschal
